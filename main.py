@@ -28,6 +28,9 @@ while True:
         # Validación de la potencia
         try:
             potencia = float(input("Potencia consumida en Vatios (W): "))
+            if potencia < 0:
+                print("⚠️ Error: La potencia no puede ser negativa.")
+                continue
         except ValueError:
             print("⚠️ Error: Debe introducir un número válido para la potencia.")
             continue
@@ -35,6 +38,9 @@ while True:
         # Validación de las horas
         try:
             horas = float(input("Horas de uso diario: "))
+            if horas < 0:
+                print("⚠️ Error: Las horas no pueden ser negativas.")
+                continue
         except ValueError:
             print("⚠️ Error: Debe introducir un número válido para las horas.")
             continue
