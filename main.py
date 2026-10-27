@@ -1,3 +1,5 @@
+from calculadora import estimar_consumo_wh, calcular_huella_co2
+
 # =====================================================================
 # EcoAudit CLI - Módulo Principal
 # Autores: [Nombre Alumno 1] & [Nombre Alumno 2]
@@ -65,13 +67,24 @@ while True:
         print(f"   • Huella de carbono estimada: {huella:.4f} g CO2")
         print("\n[OPCIÓN 1] Iniciando proceso de auditoría...")
         print(f"Configurado con éxito para {iteraciones} iteraciones")
+                # Guardado persistente en el archivo CSV
+        with open("auditorias.csv", mode="a", encoding="utf-8") as archivo:
+            # Escribimos los datos separados por comas y terminamos con salto de línea (\n)
+            archivo.write(f"{proceso},{potencia},{horas},{iteraciones},{consumo:.2f},{huella:.4f}\n")
+        print("💾 Registro guardado con éxito en 'auditorias.csv'.")
         
     elif opcion == 2:
         print("\n[OPCIÓN 2] Consultando registros históricos...")
+        print("\n================ HISTORIAL DE AUDITORÍAS ================")
+        try:
+            with open("auditorias.csv", mode="r", encoding="utf-8") as archivo:
+                contenido = archivo.read()
+                print(contenido)
+        except FileNotFoundError:
+            print("ℹ️ Aún no existen registros. Realiza una auditoría primero.")
     
     elif opcion == 3:
         print("\nSaliendo de EcoAudit CLI. ¡Hasta pronto!")
         break
-    
     else:
         print("⚠️ Opción no válida. Elija un número entre 1 y 3.")
