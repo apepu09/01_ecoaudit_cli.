@@ -1,4 +1,3 @@
-from calculadora import estimar_consumo_wh, calcular_huella_co2
 # =====================================================================
 # EcoAudit CLI - Módulo Principal
 # Autores: [Nombre Alumno 1] & [Nombre Alumno 2]
