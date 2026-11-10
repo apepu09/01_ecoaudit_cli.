@@ -31,6 +31,9 @@ while True:
             potencia = float(input("Potencia consumida en Vatios (W): "))
             if potencia < 0:
                 print("⚠️ Error: La potencia no puede ser negativa.")
+                #print(5)
+                #print("hola")
+                #print(hola)
                 continue
         except ValueError:
             print("⚠️ Error: Debe introducir un número válido para la potencia.")
